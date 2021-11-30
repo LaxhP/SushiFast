@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SushiService } from './sushi.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SushiFast';
+  sushi: any;
+
+  constructor(public sushiService: SushiService) { }
+
+  ngOnInit() {
+    this.fetchSushi();
+
+    } 
+  
+
+  fetchSushi() {
+    return this.sushiService.getSushis().subscribe((data: {}) => {
+    this.sushi = data;
+    })
+    
+
+  }
 }
+
