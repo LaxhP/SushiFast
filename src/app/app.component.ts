@@ -8,23 +8,16 @@ import { SushiService } from './sushi.service';
 })
 export class AppComponent {
   title = 'SushiFast';
-  sushi: any;
-  im:string='<img src="/src/assets/images/happy2.jpeg">';
+
+ 
   constructor(public sushiService: SushiService) { }
 
   ngOnInit() {
-    this.fetchSushi();
 
-    } 
+
+    }
+
+
   
-
-  fetchSushi() {
-    return this.sushiService.getSushis().subscribe((data: {}) => {
-    this.sushi = data;
-    
-    })
-    
-
-  }
 }
 
