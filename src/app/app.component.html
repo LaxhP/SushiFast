@@ -1,6 +1,17 @@
 <html>
-  <ul>
-    <li *ngFor="let box of sushi">{{ box.nom }}</li>
-</ul>
+<h1>sushi liste</h1>
+<table border="2px">
+ <th>image</th> <th>nom</th> <th>prix</th> <th>pieces</th>
+  <tr *ngFor="let box of sushi">
+    <td><img src="assets/images/{{box.image}}.webp"  ></td>
+    <td>{{ box.nom }} </td>
+    <td>{{ box.prix }}</td>
+    <td>{{ box.pieces }}</td><!--chemat uml/cmd-->   
+  
+  </tr>
+</table>
+<p> 
+  <img [src]="'/home/laupa/Documents/agulard/sushiFast/src/assets/img/fight.jpg'" alt="à bientot ">
+</p>
 
 </html>
