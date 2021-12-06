@@ -1,26 +1,24 @@
 <html>
-<div class="columns">
-  bienvenue
-  <h1>sushi liste</h1>
-</div>
+
+
+<h1 class="title">Liste de Boxes</h1>
 
 <table class="table">
   <thead>
- <th>image</th>
- <th>nom</th>
-  <th>prix</th>
-  <th>pieces</th>
-</thead>
+    <th>image</th>
+    <th>nom</th>
+    <th>prix</th>
+    <th>nombre de pieces</th>
+    <th></th>
+  </thead>
   <tr *ngFor="let box of sushi">
     <td><img src="assets/images/{{box.image}}.webp"></td>
     <td>{{ box.nom }} </td>
-    <td>{{ box.prix }}</td>
+    <td>{{ box.prix }}€</td>
     <td>{{ box.pieces }}</td>
-    <!--chemat uml/cmd-->
+    <td><button class="button">Commander</button></td>
   </tr>
 </table>
-<p>
-  <img [src]="'/home/laupa/Documents/agulard/sushiFast/src/assets/img/fight.jpg'" alt="à bientot ">
-</p>
+
 
 </html>
