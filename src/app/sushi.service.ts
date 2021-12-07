@@ -23,6 +23,12 @@ return this.http.get<any>(urlrest + '/boxes').pipe(
   );
 }
 
+getSushi(id : number): Observable<any> {
+  return this.http.get<any>(urlrest + '/boxes/' + id).pipe(
+    catchError(this.handleError)
+  );
+}
+
 private handleError(error: HttpErrorResponse): any {
   if (error.error instanceof ErrorEvent) {
   console.error('An error occurred:', error.error.message);
