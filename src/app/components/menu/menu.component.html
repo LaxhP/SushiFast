@@ -1,20 +1,40 @@
-
 <h1 class="title">Liste de Boxes</h1>
 
 <table class="table">
-  <thead>
+  <thead class="has-text-weight">
     <th>image</th>
     <th>nom</th>
     <th>prix</th>
     <th>nombre de pieces</th>
     <th></th>
   </thead>
-  <tr *ngFor="let box of sushi">
+  <tr *ngFor="let box of sushi;index as i">
     <td><img src="assets/images/{{box.image}}.webp"></td>
     <td>{{ box.nom }} </td>
     <td>{{ box.prix }}€</td>
     <td>{{ box.pieces }}</td>
-    <td><button class="button">Commander</button></td>
+    <td>
+      <div class="content">
+        <div><button class="button"> Commander</button></div>
+        <div><button class="button" (click)="infoOn(i)">information</button></div>
+      </div>
+    </td>
+    <td>
+      <div class=""><div class=""></div>
+      <div class="">
+      <div *ngIf="getInfo(i)" class="columns is-narrow">
+        <div class="column is-four-fifths">
+          <ul>
+             <strong>Saveur : </strong>
+             <li>{{box.saveurs}}</li>
+            <div class="has-text-weight-semibold">Nom et Quantite:</div>
+            <li *ngFor="let compo of box.composition"> {{compo.nom}}, {{compo.quantite}}</li>
+          </ul>
+        </div>
+        <a class="column is-1" (click)="infoOff(i)">X</a>
+      </div>
+    </div></div>
+    </td>
   </tr>
 </table>
 
