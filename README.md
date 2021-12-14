@@ -49,6 +49,7 @@ Les plateaux commandé seront sauvegardé sur le client, dans le localstorage. L
 
 # RGPD
 Mentions Légales
+---
 Editeur
 **Sushi SHOP**
 
