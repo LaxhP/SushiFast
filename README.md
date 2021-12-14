@@ -4,9 +4,6 @@
 ### Diagramme de cas d'utilisation
 ![Diagramme d'utilisation](src/img/dia_user.png)
 
-Dans ce diagramme de cas d'utilisation, nous pouvons apercevoir 3 cas d'utilisations. Le serveur qui prends les commandes des client peut effectuer 3 requêtes. Il peut créer où modifier un panier, il peut ensuite valider le panier qui va se transformer en commande, enfin il peut voir l'historiques des commandes.
-
-
 ### Diagramme de séquence
 ![Diagramme de séquence](src/img/sequence_diagramme.png)
 
