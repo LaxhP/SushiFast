@@ -15,7 +15,7 @@
     <td>{{ box.pieces }}</td>
     <td>
       <div class="content">
-        <div><button class="button" (click)="ajoutPanier(box)"> Commander</button></div>
+        <div><button class="button" (click)="ajoutPanier(box)"> Ajouter au panier</button></div>
         <div><button class="button" (click)="infoOn(i)">information</button></div>
       </div>
     </td>
@@ -30,6 +30,7 @@
             <div class="has-text-weight-semibold">Nom et Quantite:</div>
             <li *ngFor="let compo of box.composition"> {{compo.nom}}, {{compo.quantite}}</li>
           </ul>
+          
         </div>
         <a class="column is-1" (click)="infoOff(i)">X</a>
       </div>
@@ -53,6 +54,7 @@
   <tr *ngFor="let ligne of panier"> <td></td><td>{{ligne.quantite}}</td><td></td></tr>
   </table>
   <strong>prix : 100e</strong>
+  <div><button class="button" (click)="valideCommande()"> Commander</button></div>
   
 </div>
 </div>

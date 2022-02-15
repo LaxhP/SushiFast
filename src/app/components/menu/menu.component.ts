@@ -61,6 +61,16 @@ export class MenuComponent implements OnInit {
     localStorage.setItem('SushiPanier', tabItems);
 
   }
+
+
+  valideCommande(){
+    let commandes = JSON.parse(localStorage.getItem('SushiCommande') || '[]');
+    this.panier = JSON.parse(localStorage.getItem('SushiPanier') || '[]');
+    commandes.push(this.panier);
+    let tabItems = JSON.stringify(commandes);
+    localStorage.setItem('SushiCommande', tabItems);
+    localStorage.removeItem('SushiPanier');
+  }
   
 }
 
