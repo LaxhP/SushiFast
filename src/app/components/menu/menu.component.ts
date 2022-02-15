@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SushiService } from 'src/app/sushi.service';
+import { LigneCommande } from 'src/app/classes/ligne-commande';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -9,6 +10,7 @@ export class MenuComponent implements OnInit {
   sushi: any;
   info:Array<boolean>=[];
   constructor(public sushiService: SushiService) { }
+
   
   ngOnInit() {
     this.fetchSushi();
@@ -26,4 +28,28 @@ export class MenuComponent implements OnInit {
     
     })
   }
-}
+
+  ajoutPanier(id:number) {
+    
+    
+      // Exemple d'affectation
+      let panier: LigneCommande[];
+      panier = JSON.parse(localStorage.getItem('SushiPanier') || '[]');
+      
+      let ajout = false;
+      panier.forEach(element=>{if (element.id==id){
+        element.quantite ++;
+        ajout=true;
+      }});
+
+      if(!ajout){
+      let uneLigne = new LigneCommande(id, 1);
+      panier.push(uneLigne);
+      }
+
+      let tabItems = JSON.stringify(panier);
+      localStorage.setItem('SushiPanier', tabItems);
+  
+    }
+  }
+

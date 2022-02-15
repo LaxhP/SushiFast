@@ -15,7 +15,7 @@
     <td>{{ box.pieces }}</td>
     <td>
       <div class="content">
-        <div><button class="button"> Commander</button></div>
+        <div><button class="button" (click)="ajoutPanier(box.id)"> Commander</button></div>
         <div><button class="button" (click)="infoOn(i)">information</button></div>
       </div>
     </td>

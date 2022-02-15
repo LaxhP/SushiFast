@@ -4,7 +4,7 @@ Equipe: Laxhan PUSHPAKUMAR, Alexis LUCAS, Jessy LAUPA
 
 ### Diagramme de cas d'utilisation
 ![](src/img/diagramme_utilisation.png)
-Dans ce diagramme de cas d'utilisation, nous pouvons apercevoir 3 cas d'utilisations. Le serveur qui prends les commandes des client peut effectuer 3 requêtes. Il peut créer où modifier un panier, il peut ensuite valider le panier qui va se transformer en commande, enfin il peut voir l'historiques des commandes.
+Dans ce diagramme de cas d'utilisation, nous pouvons apercevoir 3 cas d'utilisations. Le serveur qui prends les commandes des client peut effectuer 3 actions. Il peut créer où modifier un panier, il peut ensuite valider le panier qui va se transformer en commande, enfin il peut voir l'historiques des commandes.
 
 
 ### Diagramme de séquence
@@ -14,6 +14,16 @@ Dans ce diagramme de cas d'utilisation, nous pouvons apercevoir 3 cas d'utilisat
 ### Requete API
 SushiFast est une application FrontEnd qui envoie des requetes sur l'API sushiAPI.
 
+
+```
+//SushiFast
+// Fonction qui interroge le Backend SushiAPI et qui retourne tout les plateaux
+getSushis(): Observable<any> {
+return this.http.get<any>(urlrest + '/boxes').pipe(
+  catchError(this.handleError)
+  );
+}
+```
 ```
 //SushiAPI
 // Fonction appelée par SushiFast qui interroge la base de donnée SushiBoxes et qui retourne tout les plateaux
@@ -24,16 +34,6 @@ router.get('/', function (req, res) {
   collection.find({}, function (e, listeBoxes) {
     res.send(listeBoxes);
   });
-```
-
-```
-//SushiFast
-// Fonction qui interroge le Backend SushiAPI et qui retourne tout les plateaux
-getSushis(): Observable<any> {
-return this.http.get<any>(urlrest + '/boxes').pipe(
-  catchError(this.handleError)
-  );
-}
 ```
 
 
