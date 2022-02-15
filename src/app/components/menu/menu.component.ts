@@ -8,48 +8,59 @@ import { LigneCommande } from 'src/app/classes/ligne-commande';
 })
 export class MenuComponent implements OnInit {
   sushi: any;
-  info:Array<boolean>=[];
+  info: Array<boolean> = [];
+  panier: Array<LigneCommande> = [];
   constructor(public sushiService: SushiService) { }
 
-  
+
   ngOnInit() {
     this.fetchSushi();
 
-    }
-    infoOff(index:number){this.info[index]=false}
-    infoOn(index:number){this.info[index]=true;}
+  }
 
-  getInfo(index:number){
+  infoOff(index: number) {
+    this.info[index] = false;
+  }
+
+  infoOn(index: number) {
+    this.info[index] = true;
+  }
+
+  getInfo(index: number) {
     return this.info[index];
   }
+
   fetchSushi() {
     return this.sushiService.getSushis().subscribe((data: {}) => {
-    this.sushi = data;
-    
+      this.sushi = data;
+
     })
   }
+ 
+  ajoutPanier(box: any) {
 
-  ajoutPanier(id:number) {
-    
-    
-      // Exemple d'affectation
-      let panier: LigneCommande[];
-      panier = JSON.parse(localStorage.getItem('SushiPanier') || '[]');
-      
-      let ajout = false;
-      panier.forEach(element=>{if (element.id==id){
-        element.quantite ++;
-        ajout=true;
-      }});
 
-      if(!ajout){
-      let uneLigne = new LigneCommande(id, 1);
-      panier.push(uneLigne);
+    // Exemple d'affectation
+
+
+    this.panier = JSON.parse(localStorage.getItem('SushiPanier') || '[]');
+    let ajout = false;
+    this.panier.forEach(element => {
+      if (element.id == box.id) {
+        element.quantite++;
+        ajout = true;
       }
+    });
 
-      let tabItems = JSON.stringify(panier);
-      localStorage.setItem('SushiPanier', tabItems);
-  
+    if (!ajout) {
+      let uneLigne = new LigneCommande(box.id, 1,box.nom,box.prix);
+      this.panier.push(uneLigne);
     }
+
+    let tabItems = JSON.stringify(this.panier);
+    localStorage.setItem('SushiPanier', tabItems);
+
   }
+  
+}
 
