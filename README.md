@@ -1,14 +1,17 @@
 # Mission 2
 ## SushiFast
-Equipe: Laxhan PUSHPAKUMAR, Alexis LUCAS, Jessy LAUPA
 
 ### Diagramme de cas d'utilisation
+<<<<<<< HEAD
 ![](src/img/diagramme_utilisation.png)
 Dans ce diagramme de cas d'utilisation, nous pouvons apercevoir 3 cas d'utilisations. Le serveur qui prends les commandes des client peut effectuer 3 actions. Il peut créer où modifier un panier, il peut ensuite valider le panier qui va se transformer en commande, enfin il peut voir l'historiques des commandes.
 
+=======
+![Diagramme d'utilisation](src/img/dia_user.png)
+>>>>>>> 0834e2842f0d20c839a39801b41d63432a43ffea
 
 ### Diagramme de séquence
-![](src/img/sequence_diagramme.png)
+![Diagramme de séquence](src/img/sequence_diagramme.png)
 
 
 ### Requete API
@@ -49,14 +52,33 @@ Les plateaux commandé seront sauvegardé sur le client, dans le localstorage. L
 
 # RGPD
 Mentions Légales
+---
 Editeur
 **Sushi SHOP**
 
-N° Siret : 169 442 910 00686 Siège social : Sushi SHOP Vinci, Impasse Leonard Michel 77000 Melun FRANCE Pour nous contacter : [laupajessy@gmail.com](mailto:laupajessy@gmail.com)
+N° Siret : 169 442 910 00686
+
+Siège social : Sushi SHOP Vinci,
+
+Impasse Leonard Michel 
+
+77000 Melun
+
+FRANCE
+
+Pour nous contacter : [laupajessy@gmail.com](mailto:laupajessy@gmail.com)
 
 **Hébergeur**
 
-Rue du PC 75013 Paris France Tel +33 (0) 1 70.37.76.61 ---
+Gandi SAS
+
+63-65 Boulvard Messéna
+
+75013 Paris
+
+France
+
+Tel +33 (0) 1 70.37.76.61
 
 **Informatique et libertés**
 **Informations personnels collectées**
