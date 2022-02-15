@@ -1,4 +1,4 @@
-<h1 class="title">Liste de Boxes</h1>
+<div><h1 class="title">Liste de Boxes</h1>
 <div class="columns is-8">
   <div class="column"><table class="table">
   <thead class="has-text-weight">
@@ -51,15 +51,19 @@
       <th>prix</th>
   </thead>  
   
-  <tr *ngFor="let ligne of panier"> <td></td><td>{{ligne.quantite}}</td><td></td></tr>
+  <tr *ngFor="let ligne of panier"> <td>{{ligne.nom}}</td><td>{{ligne.quantite}}</td>{{ligne.prix}}<td></td></tr>
   </table>
-  <strong>prix : 100e</strong>
+
   <div><button class="button" (click)="valideCommande()"> Commander</button></div>
+
+  <strong>prix : {{prixTotal()}}</strong>
   
 </div>
 </div>
 </div>
 </div>
+</div>
+
 <!--a class="popup" (click)="myFunction()">Click me!</a>
 <div *nfIf="popuptext()">
   bon <span>Popup text...</span>

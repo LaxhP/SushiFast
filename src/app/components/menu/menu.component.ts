@@ -36,6 +36,14 @@ export class MenuComponent implements OnInit {
 
     })
   }
+
+  prixTotal(){
+    let total=0;
+    this.panier.forEach(element => {
+     total=total+(element.prix*element.quantite); 
+    });
+    return total
+  }
  
   ajoutPanier(box: any) {
 
