@@ -1,67 +1,81 @@
-<div><h1 class="title">Liste de Boxes</h1>
-<div class="columns is-8">
-  <div class="column"><table class="table">
-  <thead class="has-text-weight">
-    <th>image</th>
-    <th>nom</th>
-    <th>prix</th>
-    <th>nombre de pieces</th>
-    <th></th>
-  </thead>
-  <tr *ngFor="let box of sushi;index as i">
-    <td><img src="assets/images/{{box.image}}.webp"></td>
-    <td>{{ box.nom }} </td>
-    <td>{{ box.prix }}€</td>
-    <td>{{ box.pieces }}</td>
-    <td>
-      <div class="content">
-        <div><button class="button" (click)="ajoutPanier(box)"> Ajouter au panier</button></div>
-        <div><button class="button" (click)="infoOn(i)">information</button></div>
-      </div>
-    </td>
-    <td>
-      <div class=""><div class=""></div>
-      <div class="">
-      <div *ngIf="getInfo(i)" class="columns is-narrow">
-        <div class="column is-four-fifths">
-          <ul>
-             <strong>Saveur : </strong>
-             <li>{{box.saveurs}}</li>
-            <div class="has-text-weight-semibold">Nom et Quantite:</div>
-            <li *ngFor="let compo of box.composition"> {{compo.nom}}, {{compo.quantite}}</li>
-          </ul>
-          
-        </div>
-        <a class="column is-1" (click)="infoOff(i)">X</a>
-      </div>
-    </div></div>
-    </td>
-  </tr>
-</table>
-</div>
-
-<div class="column is-one-quarter">
-  <div class="box" style="background-color: #fdebd0;">
-<h2>carte pour commander</h2>
 <div>
-  <table class="table is-striped">
-    <thead class="has-text-weight">
-      <th>nom</th>
-      <th>quantite</th>
-      <th>prix</th>
-  </thead>  
-  
-  <tr *ngFor="let ligne of panier"> <td>{{ligne.nom}}</td><td>{{ligne.quantite}}</td>{{ligne.prix}}<td></td></tr>
-  </table>
+  <h1 class="title">Liste de Boxes</h1>
+  <div class="columns is-8">
+    <div class="column">
+      <table class="table">
+        <thead class="has-text-weight">
+          <th>image</th>
+          <th>nom</th>
+          <th>prix</th>
+          <th>nombre de pieces</th>
+          <th></th>
+        </thead>
+        <tr *ngFor="let box of sushi;index as i">
+          <td><img src="assets/images/{{box.image}}.webp"></td>
+          <td>{{ box.nom }} </td>
+          <td>{{ box.prix }}€</td>
+          <td>{{ box.pieces }}</td>
+          <td>
+            <div class="content">
+              <div><button class="button" (click)="ajoutPanier(box)"> Ajouter au panier</button></div>
+              <div><button class="button" (click)="infoOn(i)">information</button></div>
+              </div>
+          </td>
+          <td>
+            <div class="">
+              <div class=""></div>
+              <div class="">
+                <div *ngIf="getInfo(i)" class="columns is-narrow">
+                  <div class="column is-four-fifths">
+                    <ul>
+                      <strong>Saveur : </strong>
+                      <li>{{box.saveurs}}</li>
+                      <div class="has-text-weight-semibold">Nom et Quantite:</div>
+                      <li *ngFor="let compo of box.composition"> {{compo.nom}}, {{compo.quantite}}</li>
+                    </ul>
 
-  <div><button class="button" (click)="valideCommande()"> Commander</button></div>
+                  </div>
+                  <a class="button is-small" (click)="infoOff(i)">X</a>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
 
-  <strong>prix : {{prixTotal()}}</strong>
-  
-</div>
-</div>
-</div>
-</div>
+    <div class="column is-one-quarter">
+      <div class="box" style="background-color: #fdebd0;">
+        <h2>carte pour commander</h2>
+        <div>
+          <table class="table is-striped">
+            <thead class="has-text-weight">
+              <th>nom</th>
+              <th>quantite</th>
+              <th>prix</th>
+   
+            </thead>
+
+            <tr *ngFor="let ligne of panier">
+              <td>{{ligne.nom}}</td>
+              <td><div class="columns">
+                <div class="column"><button class="button" (click)="moinsPanier(ligne)"> - </button></div>
+                    <div class="column">{{ligne.quantite}}</div>
+                    <div class="column"><button class="button" (click)="plusPanier(ligne)"> + </button></div>     
+              </div></td>
+              <td>{{ligne.prix}}</td>
+             
+            </tr>
+          </table>
+
+          <div><button class="button" (click)="valideCommande()"> Commander</button></div>
+
+          <strong>prix : {{prixTotal()}}</strong>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!--a class="popup" (click)="myFunction()">Click me!</a>

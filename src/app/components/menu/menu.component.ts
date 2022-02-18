@@ -17,15 +17,15 @@ export class MenuComponent implements OnInit {
     this.fetchSushi();
 
   }
-
+  //Enlever les informations suplémentaires
   infoOff(index: number) {
     this.info[index] = false;
   }
-
+  //Afficher les informations suplémentaires
   infoOn(index: number) {
     this.info[index] = true;
   }
-
+  //Vérifier si les informations sont activer
   getInfo(index: number) {
     return this.info[index];
   }
@@ -44,9 +44,41 @@ export class MenuComponent implements OnInit {
     });
     return total
   }
+
+ moinsPanier(box : any){
+   let k =-5;
+   let i=0;
+   this.panier = JSON.parse(localStorage.getItem('SushiPanier') || '[]');
+  this.panier.forEach(element => {
+    if (element.id == box.id) { 
+      element.quantite--;  
+      if(element.quantite<=0)
+        k=i;
+    }
+    i++;
+  });
+ 
+  if(k>-1)    
+    this.panier.splice(k,1);
+  let tabItems = JSON.stringify(this.panier);
+  localStorage.setItem('SushiPanier', tabItems);
+ }
+
+ plusPanier(box: any) {
+  this.panier = JSON.parse(localStorage.getItem('SushiPanier') || '[]');
+  this.panier.forEach(element => {
+    if (element.id == box.id) {
+      element.quantite++;
+    }
+  });
+  let tabItems = JSON.stringify(this.panier);
+  localStorage.setItem('SushiPanier', tabItems);
+
+}
+
+
  
   ajoutPanier(box: any) {
-
 
     // Exemple d'affectation
 
