@@ -4,10 +4,10 @@
     <div class="column">
       <table class="table">
         <thead class="has-text-weight">
-          <th>image</th>
-          <th>nom</th>
-          <th>prix</th>
-          <th>nombre de pieces</th>
+          <th>Image</th>
+          <th>Nom</th>
+          <th>Prix</th>
+          <th>Nombre de pieces</th>
           <th></th>
         </thead>
         <tr *ngFor="let box of sushi;index as i">
@@ -18,8 +18,8 @@
           <td>
             <div class="content">
               <div><button class="button" (click)="ajoutPanier(box)"> Ajouter au panier</button></div>
-              <div><button class="button" (click)="infoOn(i)">information</button></div>
-              </div>
+              <div><button class="button" (click)="infoOn(i)">Information</button></div>
+            </div>
           </td>
           <td>
             <div class="">
@@ -45,32 +45,38 @@
     </div>
 
     <div class="column is-one-quarter">
+      <div>
+
+      
+    <a class="button" routerLink='/commandes' >Historique de commandes</a></div>
       <div class="box" style="background-color: #fdebd0;">
-        <h2>carte pour commander</h2>
+        <h2>Panier</h2>
         <div>
           <table class="table is-striped">
             <thead class="has-text-weight">
-              <th>nom</th>
-              <th>quantite</th>
-              <th>prix</th>
-   
+              <th>Nom</th>
+              <th>Quantite</th>
+              <th>Prix</th>
+
             </thead>
 
             <tr *ngFor="let ligne of panier">
               <td>{{ligne.nom}}</td>
-              <td><div class="columns">
-                <div class="column"><button class="button" (click)="moinsPanier(ligne)"> - </button></div>
-                    <div class="column">{{ligne.quantite}}</div>
-                    <div class="column"><button class="button" (click)="plusPanier(ligne)"> + </button></div>     
-              </div></td>
+              <td>
+                <div class="columns">
+                  <div class="column"><button class="button" (click)="moinsPanier(ligne)"> - </button></div>
+                  <div class="column">{{ligne.quantite}}</div>
+                  <div class="column"><button class="button" (click)="plusPanier(ligne)"> + </button></div>
+                </div>
+              </td>
               <td>{{ligne.prix}}</td>
-             
+
             </tr>
           </table>
 
           <div><button class="button" (click)="valideCommande()"> Commander</button></div>
 
-          <strong>prix : {{prixTotal()}}</strong>
+          <strong>Prix : {{prixTotal()}}€</strong>
 
         </div>
       </div>
@@ -78,7 +84,3 @@
   </div>
 </div>
 
-<!--a class="popup" (click)="myFunction()">Click me!</a>
-<div *nfIf="popuptext()">
-  bon <span>Popup text...</span>
-</div-->

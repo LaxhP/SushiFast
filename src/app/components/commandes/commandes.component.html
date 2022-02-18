@@ -1,0 +1,42 @@
+<div>
+    <a class="button" routerLink='/' >Accueil</a>
+    <h1 class="title">Historiques de commande</h1>
+
+    <div class="column is-one-third">
+        <table class="table is-fullwidth">
+            <thead class="has-text-weight">
+                <th>N° de commande</th>
+                <th>Nom</th>
+                <th>Quantité</th>
+                <th>Prix</th>
+                <th></th>
+            </thead>
+            <tr *ngFor="let commande of commandes; index as i;">
+                <td>N°{{i}}</td>
+                <td>
+                    <ul *ngFor="let ligne of commande">
+                        <li>{{ligne.nom}}</li>
+                    </ul>
+
+                </td>
+                <td>
+                    <ul *ngFor="let ligne of commande">
+                        <li>{{ligne.quantite}}</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul *ngFor="let ligne of commande">
+                        <li>{{ligne.prix * ligne.quantite}}€</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+</div>
+
+<!--a class="popup" (click)="myFunction()">Click me!</a>
+  <div *nfIf="popuptext()">
+    bon <span>Popup text...</span>
+  </div-->
