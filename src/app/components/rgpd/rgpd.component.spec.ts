@@ -44,6 +44,6 @@ describe('RgpdComponent', () => {
   it('should have had no padding', () => {
     const fixture = TestBed.createComponent(RgpdComponent);
     const btn = fixture.debugElement.nativeElement.querySelector('div');
-    expect(btn.style.padding).toBeFalsy;
+    expect(btn.style.padding).toBe('')
   });
 });
