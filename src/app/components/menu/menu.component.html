@@ -1,5 +1,8 @@
 <div>
   <h1 class="title">Liste de Boxes</h1>
+  <a class="button routL" routerLink='/commandes'   style="right: 100px; top: 10px;">Historique de
+    commandes</a>
+  <a class="button routL" routerLink='/rgpd' style=" right: 20px; top: 10px;"> RGPD </a>
   <div class="columns is-8">
     <div class="column">
       <table class="table">
@@ -30,7 +33,7 @@
                     <ul>
                       <strong>Saveur : </strong>
                       <li>{{box.saveurs}}</li>
-                      <div class="has-text-weight-semibold">Nom et Quantite:</div>
+                      <div class="has-text-weight-semibold">Nom des composants :</div>
                       <li *ngFor="let compo of box.composition"> {{compo.nom}}, {{compo.quantite}}</li>
                     </ul>
 
@@ -45,10 +48,6 @@
     </div>
 
     <div class="column is-one-quarter">
-      <div>
-
-      
-    <a class="button" routerLink='/commandes' >Historique de commandes</a></div>
       <div class="box" style="background-color: #fdebd0;">
         <h2>Panier</h2>
         <div>
@@ -69,18 +68,16 @@
                   <div class="column"><button class="button" (click)="plusPanier(ligne)"> + </button></div>
                 </div>
               </td>
-              <td>{{ligne.prix}}</td>
-
+              <td>{{ligne.prix*ligne.quantite}}</td>
             </tr>
           </table>
-
-          <div><button class="button" (click)="valideCommande()"> Commander</button></div>
-
-          <strong>Prix : {{prixTotal()}}€</strong>
-
+          <div class="columns">
+            <div class="column is-5"><button class="button" (click)="valideCommande()"> Commander</button></div>
+            <div class="column"><button class="button" (click)="clearPanier()"> clear</button></div>
+          </div>
+        <strong>Prix : {{prixTotal()}} €</strong>
         </div>
       </div>
     </div>
   </div>
 </div>
-

@@ -37,12 +37,18 @@ export class MenuComponent implements OnInit {
     })
   }
 
-  prixTotal(){
+  prixTotal(): number {
     let total=0;
     this.panier.forEach(element => {
      total=total+(element.prix*element.quantite); 
     });
     return total
+  }
+
+  clearPanier(){
+    this.panier=[];
+    let tabItems = JSON.stringify(this.panier);
+    localStorage.setItem('SushiPanier', tabItems);
   }
 
  moinsPanier(box : any){
