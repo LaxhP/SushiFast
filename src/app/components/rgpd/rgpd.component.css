@@ -1,3 +1,4 @@
 #rgpd{background-color:rgb(200, 200, 200);}
-div{text-align: left;
+div{
+    align-items: center;
 }
