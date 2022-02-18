@@ -89,7 +89,7 @@ La fonction
 | Numéro de l'évènement | Evènement | Impact pour l'entreprise | Gravité |
 | :---: | :------: | :------: | :---: |
 | 1 | Les données sensibles n'expire pas. | Perte financière pour l'entreprise + Problème de confiance. | ** |
-| 2 | L'API est saturé (DDOS). | Perte financière pour l'entreprise. | ** |
+| 2 | L'API est saturée (DDOS). | Perte financière pour l'entreprise. | ** |
 
 \* : modérée
 
