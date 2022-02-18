@@ -2,13 +2,12 @@
 ## SushiFast
 
 ### Diagramme de cas d'utilisation
-<<<<<<< HEAD
+
 ![](src/img/diagramme_utilisation.png)
 Dans ce diagramme de cas d'utilisation, nous pouvons apercevoir 3 cas d'utilisations. Le serveur qui prends les commandes des client peut effectuer 3 actions. Il peut créer où modifier un panier, il peut ensuite valider le panier qui va se transformer en commande, enfin il peut voir l'historiques des commandes.
 
-=======
+
 ![Diagramme d'utilisation](src/img/dia_user.png)
->>>>>>> 0834e2842f0d20c839a39801b41d63432a43ffea
 
 ### Diagramme de séquence
 ![Diagramme de séquence](src/img/sequence_diagramme.png)
@@ -47,7 +46,32 @@ Les plateaux commandé seront sauvegardé sur le client, dans le localstorage. L
   ];
 ```
 
+### Affichage des plateaux
 
+La fonction ci-dessous appelle le service et stocke la liste des plateaux dans la variable 'sushi'.
+![](src/img/fetch_sushi.png)
+
+On affiche ensuite ces plateaux grâce à une boucle qui parcours 'sushi' dans 'menu.component.html'
+![](src/img/sushi_box.png)
+
+
+Ce qui donne le résultat suivant:
+![Affichage plateaux](src/img/liste_des_boxes.png)
+
+A droite de chaque plateau, il y a un bouton 'information', qui lorsqu'on clique dessus, il affiche les informations supplémentaires du plateau (Saveur, nom et quantité des composants).
+![](src/img/box_info.png)
+
+
+
+### Ajout au panier
+A droite de chaque plateau, il y a un autre bouton qui s'appelle 'Ajouter au panier'. Le bouton appelle la fonction 'ajoutPanier()' quand on clique dessus.
+![](src/img/ajoutpanier.png)
+La fonction
+
+### Valider le panier
+
+
+### Historique commande
 
 
 # RGPD
