@@ -64,15 +64,70 @@ A droite de chaque plateau, il y a un bouton 'information', qui lorsqu'on clique
 
 
 ### Ajout au panier
-A droite de chaque plateau, il y a un autre bouton qui s'appelle 'Ajouter au panier'. Le bouton appelle la fonction 'ajoutPanier()' quand on clique dessus.
+A droite de chaque plateau, il y a un autre bouton qui s'appelle 'Ajouter au panier'. Le bouton appelle la fonction 'ajoutPanier(box)' quand on clique dessus.
 ![](src/img/ajoutpanier.png)
-La fonction
+La fonction va d'abord récuperer le panier qui est dans le Local Storage. Puis il va vérifier le plateau qu'on veut ajouter est déjà dans le panier. Si c'est le cas il va rajouter +1 à la quantité, sinon il va créer une nouvelle ligne de commande.
+Structure JSON d'une ligne de commande:
+```
+        public id: number,
+        public quantite: number,
+        public nom : string,
+        public prix : number
+```
+Il va ajouter la ligne au panier, puis on va mettre à jour le Local Storage.
+Le panier stocké dans le Local Storage est donc un tableau de ligne de commande.
 
-### Valider le panier
+### Le panier
+![](src/img/all.png)
+Ensuite à droite de la page nous avons le contenu du panier. Il récupère les donnée qui sont stocké dans la variable panier, qui contient tout les éléments du Local Storage. La variable est modifier à chaque modification du Local Storage. Les boutons plus + et - sont relié aux é fonctions suivantes 
 
+```
+ moinsPanier(box : any){
+   let k =-5;
+   let i=0;
+   this.panier = JSON.parse(localStorage.getItem('SushiPanier') || '[]');
+  this.panier.forEach(element => {
+    if (element.id == box.id) { 
+      element.quantite--;  
+      if(element.quantite<=0)
+        k=i;
+    }
+    i++;
+  });
+ 
+  if(k>-1)    
+    this.panier.splice(k,1);
+  let tabItems = JSON.stringify(this.panier);
+  localStorage.setItem('SushiPanier', tabItems);
+ }
+
+ plusPanier(box: any) {
+  this.panier = JSON.parse(localStorage.getItem('SushiPanier') || '[]');
+  this.panier.forEach(element => {
+    if (element.id == box.id) {
+      element.quantite++;
+    }
+  });
+  let tabItems = JSON.stringify(this.panier);
+  localStorage.setItem('SushiPanier', tabItems);
+}
+```
+Ensuite quand nous avons terminé nous appuyons sur le bouton `commander`.
+La fonction relié au bouton `commander`:
+```
+  valideCommande(){
+    let commandes = JSON.parse(localStorage.getItem('SushiCommande') || '[]');
+    this.panier = JSON.parse(localStorage.getItem('SushiPanier') || '[]');
+    commandes.push(this.panier);
+    let tabItems = JSON.stringify(commandes);
+    localStorage.setItem('SushiCommande', tabItems);
+    localStorage.removeItem('SushiPanier');
+  }
+```  
+La fonction sauvegarde le panier dans 'SushiCommande'. La panier devient donc une commmande. 'SushiCommande' est Donc un tableau de panier
 
 ### Historique commande
-
+![](src/img/commandes.png)
 
 # RGPD
 Mentions Légales
