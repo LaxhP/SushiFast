@@ -12,7 +12,18 @@ Dans ce diagramme de cas d'utilisation, nous pouvons apercevoir 3 cas d'utilisat
 ### Diagramme de séquence
 ![Diagramme de séquence](src/img/sequence_diagramme.png)
 
+### Les tests
 
+Le test ci-dessous vient à créer le composant 'RgpdComponent' est retouner 'true' dans le cas où le test a été un succès.
+![Test 01](doc/assets/test01.png)
+
+Le test 'should have had the title' vient vérifier le contenu de l'élément ayant pour id 'title'. Si celui-ci vient à correspondre à 'Mentions Légales' alors le test sera un succès.
+![Test 02](doc/assets/test02.png)
+
+Enfin le dernier test, vient quant à lui vérifier le contenu de la feuille de style (CSS) du composant (ici 'RgpdComponent') afin de s'assurer que pour les balises `<div>`, il n'y ait de 'padding'.
+![Test 03](doc/assets/test03.png)
+
+##
 ### Requete API
 SushiFast est une application FrontEnd qui envoie des requetes sur l'API sushiAPI.
 
@@ -127,7 +138,51 @@ La fonction relié au bouton `commander`:
 La fonction sauvegarde le panier dans 'SushiCommande'. La panier devient donc une commmande. 'SushiCommande' est Donc un tableau de panier
 
 ### Historique commande
+
 ![](src/img/commandes.png)
+
+
+## Evènements redoutés
+
+| Numéro de l'évènement | Evènement | Impact pour l'entreprise | Gravité |
+| :---: | :------: | :------: | :---: |
+| 1 | Les données sensibles n'expire pas. | Perte financière pour l'entreprise + Problème de confiance. | ** |
+| 2 | L'API est saturée (DDOS). | Perte financière pour l'entreprise. | ** |
+
+\* : modérée
+
+** : très élevée
+
+## EvilUS
+
+1. Premier EvilUS
+
+**En tant que personne malveillante**, je veux avoir accès aux données de l'utilisateur afin d'exploiter ces données (bancaires par exemple).
+
+**Contre-mesure** :
+
+En tant que développeur, afin d'empêcher des personnes malveillantes qui souhaitent, à partir de l'ordinateur d'un client prendre connaissance des données personnelles et sensibles sur celle-ci. J'assure une expiration des données. Pour cela, je change le data store localStorage par sessionStorage qui assure une expiration des données à la fin de session.
+
+PS : **Cette modification n'a pas été apporté étant donnée que le projet, demandait l'usage explicite de localStorage malgré le risque potentiel**.
+
+2. Deuxième EvilUS
+
+**En tant que personne malveillante**, je souhaite perturber le fonctionne du site web et de leurs activités, réalisant une attaque par déni de services via l'API de la base de données.
+
+**Contre-mesure** :
+
+**En tant que développeur**, afin d'empêcher des personnes malveillantes qui souhaitent, à partir de l'API réalisé une attaque par déni de service. Je sécurise l'API en limitant le traffic et la taille de la charge utile.
+
+(Une autre option envisagé serait l'ajout d'un système d'authentification sur l'API. Cependant, cela obligerait à réaliser un système de connexion sur le site web).
+
+
+PS : **Cette modification nécessite des actions côté serveur**.
+
+
+
+
+
+
 
 # RGPD
 Mentions Légales
@@ -199,3 +254,9 @@ Nous tenons à vous assurer que vous êtes pleinement conscient de tous vos droi
 
 **Droit à la portabilité des données**
 - Vous avez le droit de demander que nous transférions les données que nous avons collectées à une autre organisation, ou directement à vous, sous certaines conditions.
+
+
+
+### Conclusion du projet 
+
+Le projet a été réalisé en tant et en heure et a permit l'apprentissage du framework Angular, de la notion de SPA ainsi que des tests. 
